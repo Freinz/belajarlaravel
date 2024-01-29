@@ -21,4 +21,11 @@ class EnvironmentTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testDefaultEnv()
+    {
+        $authot = Env
+    }
+
+
 }
