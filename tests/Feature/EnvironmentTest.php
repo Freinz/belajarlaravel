@@ -16,8 +16,8 @@ class EnvironmentTest extends TestCase
     {
         $youtube = env('YOUTUBE');
 
-        $assertEquals('Programmer Zaman Now', $youtube); 
-        
+        assertEquals('Programmer Zaman Now', $youtube); 
+
         $response = $this->get('/');
 
         $response->assertStatus(200);
@@ -27,7 +27,7 @@ class EnvironmentTest extends TestCase
     {
         $author = Env::get('AUTHOR', 'Eko');
 
-        self::assertEquuals('Eko', $author);
+        self::assertEquals('Eko', $author);
     }
 
 
