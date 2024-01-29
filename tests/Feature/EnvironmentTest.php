@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Env;
 use Tests\TestCase;
 
 class EnvironmentTest extends TestCase
@@ -15,8 +16,8 @@ class EnvironmentTest extends TestCase
     {
         $youtube = env('YOUTUBE');
 
-        $this->assertEquals('Programmer Zaman Now', $youtube); // Menggunakan $this->assertEquals() dari PHPUnit
-
+        $assertEquals('Programmer Zaman Now', $youtube); 
+        
         $response = $this->get('/');
 
         $response->assertStatus(200);
@@ -24,7 +25,9 @@ class EnvironmentTest extends TestCase
 
     public function testDefaultEnv()
     {
-        $authot = Env
+        $author = Env::get('AUTHOR', 'Eko');
+
+        self::assertEquuals('Eko', $author);
     }
 
 
